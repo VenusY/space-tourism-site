@@ -6,7 +6,7 @@ import './styles/reset.css';
 import './styles/App.scss';
 
 export default function App() {
-  const [page, setPage] = useState('technology');
+  const [page, setPage] = useState('home');
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   function changePage(e) {
