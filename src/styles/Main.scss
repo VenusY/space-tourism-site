@@ -1,0 +1,36 @@
+@use './util/functions' as f;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: f.rem(22);
+
+  &__page-heading {
+    margin-bottom: f.rem(30);
+    font-family: var(--ff-sub-heading);
+    font-weight: 200;
+    letter-spacing: f.rem(2.7);
+    text-transform: uppercase;
+    text-align: center;
+
+    &::before {
+      display: inline-block;
+      margin-right: f.rem(11);
+      font-weight: var(--fw-bold);
+      color: #4b4c55;
+    }
+
+    &--destination::before {
+      content: '01';
+    }
+
+    &--crew::before {
+      content: '02';
+    }
+
+    &--technology::before {
+      content: '03';
+    }
+  }
+}

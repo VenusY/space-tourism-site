@@ -1,0 +1,85 @@
+@use './util/functions' as f;
+@use './util/mixins' as m;
+
+.crew {
+  &__main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__info-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 100vw;
+      // Height of info section + double the space between image and pagination dots
+      height: calc(100% + f.rem(56));
+      // Makes this box sit directly against the image border
+      top: -(f.rem(28));
+      backdrop-filter: blur(5px);
+    }
+  }
+
+  &__member-role {
+    font-family: var(--ff-heading);
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  &__member-name {
+    margin-bottom: f.rem(12);
+    font-family: var(--ff-heading);
+    font-size: f.rem(24);
+    text-transform: uppercase;
+  }
+
+  &__bio {
+    @include m.body-text-defaults;
+  }
+}
+
+.hero-image {
+  width: auto;
+  height: 222px;
+
+  &__container {
+    order: -1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: f.rem(28);
+    border-bottom: 1px solid #383b4b;
+  }
+}
+
+.crew__pagination-dots {
+  order: -1;
+  margin-bottom: f.rem(22);
+
+  &__dot {
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    background: rgba(151, 151, 151, 0.5);
+    border-radius: 50%;
+    border: none;
+
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+
+    &--active {
+      background: var(--white);
+    }
+  }
+}

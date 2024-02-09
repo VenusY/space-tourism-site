@@ -1,0 +1,109 @@
+@use './util/functions' as f;
+@use './util/mixins' as m;
+
+.destination {
+  &__main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__hero-image {
+    width: 170px;
+    height: 170px;
+    margin-bottom: f.rem(18);
+  }
+
+  &__info-section {
+    text-align: center;
+  }
+
+  &__nav-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: f.rem(14);
+  }
+
+  &__button {
+    cursor: pointer;
+    position: relative;
+    padding: f.rem(8) 0 f.rem(11) 0;
+    border: none;
+    background: none;
+    font-family: var(--ff-sub-heading);
+    font-size: f.rem(14);
+    font-weight: var(--fw-thin);
+    text-transform: uppercase;
+    letter-spacing: f.rem(3);
+    color: var(--light-blue);
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+      @include m.button-underline;
+      background: var(--grey);
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &--active {
+      color: var(--white);
+
+      &::before {
+        @include m.button-underline;
+        background: var(--white);
+      }
+
+      /*
+        Makes it so that the underline doesn't turn grey when being hovered
+        over/focused on if the button is active
+      */
+      &:hover::before,
+      &:focus-visible::before {
+        background: var(--white);
+      }
+    }
+  }
+
+  &__main-heading {
+    margin-bottom: -10px;
+    font-size: f.rem(56);
+    font-family: var(--ff-heading);
+    font-weight: var(--fw-regular);
+    text-transform: uppercase;
+  }
+
+  &__description {
+    @include m.body-text-defaults;
+    padding-bottom: f.rem(32);
+    margin-bottom: f.rem(32);
+    border-bottom: 1px solid #383b4b;
+  }
+}
+
+.stats {
+  &__container:not(:last-child) {
+    margin-bottom: f.rem(24);
+  }
+
+  &__heading {
+    margin-bottom: f.rem(6);
+    font-family: var(--ff-sub-heading);
+    font-size: f.rem(14);
+    font-weight: var(--fw-thin);
+    text-transform: uppercase;
+    letter-spacing: f.rem(2.36);
+    color: var(--light-blue);
+  }
+
+  &__value {
+    font-family: var(--ff-heading);
+    font-size: f.rem(28);
+    text-transform: uppercase;
+  }
+}

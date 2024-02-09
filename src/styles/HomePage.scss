@@ -1,0 +1,78 @@
+@use './util/functions' as f;
+@use './util/mixins' as m;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__text-section {
+    text-align: center;
+    margin-bottom: 82px;
+  }
+
+  &__heading {
+    font-family: var(--ff-sub-heading);
+    font-size: f.rem(16);
+    text-transform: uppercase;
+    letter-spacing: f.rem(2.7);
+    color: var(--light-blue);
+
+    &--large {
+      display: block;
+      margin-bottom: f.rem(6);
+      font-family: var(--ff-heading);
+      font-size: f.rem(80);
+      font-weight: var(--fw-regular);
+      letter-spacing: normal;
+      color: var(--white);
+    }
+  }
+
+  &__introduction {
+    @include m.body-text-defaults;
+  }
+}
+
+.explore-button {
+  @include m.center-content;
+  cursor: pointer;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  font-family: var(--ff-heading);
+  font-size: 20px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  color: var(--dark-blue);
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 150px;
+    height: 150px;
+    background: rgba(151, 151, 151, 0.1);
+    backdrop-filter: blur(35px);
+    border-radius: 50%;
+    transition: all 80ms linear;
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    width: 220px;
+    height: 220px;
+    outline: none;
+  }
+
+  &__text {
+    margin-top: 10px;
+  }
+}
