@@ -16,7 +16,6 @@
 body {
   min-height: 100vh;
   padding: 24px;
-  padding-bottom: 40px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -26,6 +25,7 @@ body {
 }
 
 body:has(main.home) {
+  padding-bottom: 40px;
   background-image: url('../../public/assets/home/background-home-mobile.jpg');
 }
 
