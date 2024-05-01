@@ -8,25 +8,13 @@
     align-items: center;
   }
 
-  &__info-section {
+  &__text-section {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    &::before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      width: 100vw;
-      // Height of info section + double the space between image and pagination dots
-      height: calc(100% + f.rem(56));
-      // Makes this box sit directly against the image border
-      top: -(f.rem(28));
-      backdrop-filter: blur(5px);
-    }
   }
 
   &__member-role {
@@ -36,7 +24,7 @@
   }
 
   &__member-name {
-    margin-bottom: f.rem(12);
+    margin-bottom: f.rem(14);
     font-family: var(--ff-heading);
     font-size: f.rem(24);
     text-transform: uppercase;
@@ -63,23 +51,72 @@
 
 .crew__pagination-dots {
   order: -1;
-  margin-bottom: f.rem(22);
+  margin-bottom: f.rem(18);
 
   &__dot {
     cursor: pointer;
     width: 10px;
     height: 10px;
     padding: 0;
-    background: rgba(151, 151, 151, 0.5);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     border: none;
+    transition: background 100ms linear;
 
     &:not(:last-child) {
       margin-right: 16px;
     }
 
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.5);
+      outline: none;
+    }
+
+    &:focus-visible {
+      @include m.focus-styles;
+    }
+
     &--active {
       background: var(--white);
+
+      &:hover,
+      &:focus-visible {
+        background: var(--white);
+      }
     }
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .crew {
+    &__member-role {
+      font-size: f.rem(24);
+    }
+
+    &__member-name {
+      margin-bottom: f.rem(5);
+      font-size: f.rem(40);
+    }
+
+    &__bio {
+      @include m.body-text-defaults-medium;
+      width: 600px;
+      margin-bottom: 35px;
+    }
+  }
+
+  .hero-image {
+    height: 532px;
+
+    &__container {
+      order: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .crew__pagination-dots {
+    order: 0;
+    margin-bottom: 30px;
   }
 }

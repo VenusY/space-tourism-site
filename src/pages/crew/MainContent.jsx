@@ -27,7 +27,7 @@ export default function MainContent() {
 
   return (
     <div className='crew__main-content'>
-      <section className='crew__info-section'>
+      <section className='crew__text-section'>
         <h2 className='crew__member-role'>{role}</h2>
         <h2 className='crew__member-name'>{member}</h2>
         <p className='crew__bio'>{bio}</p>

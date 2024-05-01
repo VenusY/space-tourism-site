@@ -16,7 +16,7 @@
 
     &::before {
       display: inline-block;
-      margin-right: f.rem(11);
+      margin-right: f.rem(14);
       font-weight: var(--fw-bold);
       color: #4b4c55;
     }
@@ -31,6 +31,19 @@
 
     &--technology::before {
       content: '03';
+    }
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .main {
+    margin-top: f.rem(35);
+
+    &__page-heading {
+      width: 100%;
+      margin-bottom: f.rem(55);
+      text-align: start;
+      font-size: f.rem(20);
     }
   }
 }

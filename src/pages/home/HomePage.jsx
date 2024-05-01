@@ -5,8 +5,10 @@ export default function Home({ changePage }) {
     <main className='home'>
       <section className='home__text-section'>
         <h1 className='home__heading'>
-          So, you want to travel to
-          <span className='home__heading home__heading--large'>Space</span>
+          <span className='home__heading--small'>
+            So, you want to travel to
+          </span>
+          <span className='home__heading--large'>Space</span>
         </h1>
 
         <p className='home__introduction'>

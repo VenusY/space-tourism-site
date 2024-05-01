@@ -28,8 +28,11 @@ export default function App() {
             alt='Space Tourism Website Logo'
           />
         </button>
+
+        <div className='header__line'></div>
+
         <MenuButton navIsOpen={navIsOpen} toggleMenu={toggleMenu} />
-        <NavBar changePage={changePage} navIsOpen={navIsOpen} />
+        <NavBar changePage={changePage} navIsOpen={navIsOpen} page={page} />
       </header>
 
       <Main page={page} changePage={changePage} />

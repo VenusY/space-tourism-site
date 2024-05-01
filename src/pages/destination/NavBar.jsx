@@ -13,10 +13,10 @@ export default function NavBar({ changeDestination, destination }) {
       {destinationArray.map(destinationFromArray => (
         <button
           key={destinationFromArray}
-          className={`destination__button${
+          className={`destination__nav-bar__button${
             // Add --active class if the button correlates to active destination
             destinationFromArray === destination
-              ? ' destination__button--active'
+              ? ' destination__nav-bar__button--active'
               : ''
           }`}
           data-destination={destinationFromArray}

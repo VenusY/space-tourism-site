@@ -7,12 +7,12 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 100%;
+    width: 100%;
   }
 
   &__pagination-dots {
     display: flex;
-    margin-bottom: f.rem(24);
+    margin-bottom: 22px;
 
     &__dot {
       @include m.center-content;
@@ -20,11 +20,12 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 1px solid rgba(151, 151, 151, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       background: none;
       font-family: var(--ff-heading);
       font-size: f.rem(16);
       color: var(--white);
+      transition: background 80ms linear;
 
       &:not(:last-child) {
         margin-right: 16px;
@@ -62,7 +63,7 @@
   }
 
   &__name {
-    margin-bottom: f.rem(12);
+    margin-bottom: f.rem(14);
     font-family: var(--ff-heading);
     font-size: f.rem(24);
     text-transform: uppercase;
@@ -74,10 +75,50 @@
 
   &__hero-image {
     order: -1;
-    width: 100vw;
+    /*
+      Width of the hero image is 100% of container width + padding on both sides
+      Set using calc instead of 100vw because 100vw causes horizontal scrolling
+    */
+    width: calc(100% + 48px);
     height: clamp(170px, 45vw, 310px);
     object-fit: cover;
     object-position: bottom;
-    margin-bottom: f.rem(34);
+    margin-bottom: 36px;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .technology {
+    &__pagination-dots {
+      margin-bottom: 42px;
+
+      &__dot {
+        width: 60px;
+        height: 60px;
+        font-size: f.rem(24);
+        letter-spacing: f.rem(1.5);
+      }
+    }
+
+    &__sub-heading {
+      margin-bottom: f.rem(8);
+      font-size: f.rem(16);
+      letter-spacing: f.rem(2.7);
+    }
+
+    &__name {
+      margin-bottom: f.rem(8);
+      font-size: f.rem(40);
+    }
+
+    &__description {
+      @include m.body-text-defaults-medium;
+      width: 430px;
+    }
+
+    &__hero-image {
+      width: calc(100% + 76px);
+      margin-bottom: 56px;
+    }
   }
 }
