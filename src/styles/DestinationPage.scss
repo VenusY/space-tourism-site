@@ -27,10 +27,13 @@
   }
 
   &__description {
-    @include m.body-text-defaults;
     padding-bottom: f.rem(32);
     margin-bottom: f.rem(30);
     border-bottom: 1px solid #383b4b;
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--light-blue);
   }
 }
 
@@ -133,8 +136,7 @@
     }
 
     &__description {
-      @include m.body-text-defaults-medium;
-      max-width: 570px;
+      width: 570px;
       padding-bottom: f.rem(50);
     }
 
@@ -152,6 +154,7 @@
 
     &__button {
       font-size: f.rem(16);
+      letter-spacing: f.rem(2.7);
 
       &:not(:last-child) {
         margin-right: 35px;
@@ -167,4 +170,40 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .destination {
+    &__main-content {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: row;
+    }
+
+    &__hero-image {
+      width: 445px;
+      height: 445px;
+      margin-bottom: 0;
+      margin-right: 157px;
+    }
+
+    &__info-section {
+      width: 440px;
+      text-align: start;
+    }
+
+    &__main-heading {
+      font-size: f.rem(100);
+    }
+
+    &__description {
+      width: auto;
+      padding-bottom: f.rem(54);
+    }
+
+    &__stats-section {
+      margin-inline: 0;
+    }
+  }
+
+  .destination__nav-bar {
+    justify-content: flex-start;
+  }
 }

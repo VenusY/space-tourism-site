@@ -23,7 +23,7 @@
       border: 1px solid rgba(255, 255, 255, 0.3);
       background: none;
       font-family: var(--ff-heading);
-      font-size: f.rem(16);
+      font-size: 16;
       color: var(--white);
       transition: background 80ms linear;
 
@@ -70,20 +70,29 @@
   }
 
   &__description {
-    @include m.body-text-defaults;
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--light-blue);
   }
 
   &__hero-image {
-    order: -1;
-    /*
-      Width of the hero image is 100% of container width + padding on both sides
-      Set using calc instead of 100vw because 100vw causes horizontal scrolling
-    */
-    width: calc(100% + 48px);
-    height: clamp(170px, 45vw, 310px);
-    object-fit: cover;
-    object-position: bottom;
-    margin-bottom: 36px;
+    &--mobile {
+      order: -1;
+      /*
+        Width of the hero image is 100% of container width + padding on both sides
+        Set using calc instead of 100vw because 100vw causes horizontal scrolling
+      */
+      width: calc(100% + 48px);
+      height: clamp(170px, 45vw, 310px);
+      object-fit: cover;
+      object-position: bottom;
+      margin-bottom: 36px;
+    }
+
+    &--desktop {
+      display: none;
+    }
   }
 }
 
@@ -95,8 +104,8 @@
       &__dot {
         width: 60px;
         height: 60px;
-        font-size: f.rem(24);
-        letter-spacing: f.rem(1.5);
+        font-size: 24px;
+        letter-spacing: 1.5px;
       }
     }
 
@@ -112,13 +121,79 @@
     }
 
     &__description {
-      @include m.body-text-defaults-medium;
       width: 430px;
     }
 
     &__hero-image {
-      width: calc(100% + 76px);
-      margin-bottom: 56px;
+      &--mobile {
+        width: calc(100% + 76px);
+        margin-bottom: 56px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .technology {
+    &__main-content {
+      flex-direction: row;
+      align-items: flex-start;
+      width: 1330px;
+    }
+
+    &__pagination-dots {
+      flex-direction: column;
+      margin-top: 110px;
+      margin-bottom: 0;
+      margin-inline: 110px 80px;
+
+      &__dot {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        letter-spacing: 2px;
+
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 32px;
+        }
+      }
+    }
+
+    &__info-section {
+      width: 470px;
+      margin-right: auto;
+      margin-top: 110px;
+      text-align: start;
+    }
+
+    &__sub-heading {
+      margin-bottom: 0;
+    }
+
+    &__name {
+      font-size: f.rem(56);
+      margin-bottom: f.rem(6);
+    }
+
+    &__description {
+      width: 440px;
+    }
+
+    &__hero-image {
+      &--mobile {
+        display: none;
+      }
+
+      &--desktop {
+        display: block;
+        width: 515px;
+        height: 526px;
+        object-fit: cover;
+        object-position: center;
+        position: relative;
+        right: -55px;
+      }
     }
   }
 }

@@ -25,6 +25,8 @@ export default function MainContent() {
     break;
   }
 
+  let firstName = member.split(' ')[0].toLowerCase();
+
   return (
     <div className='crew__main-content'>
       <section className='crew__text-section'>
@@ -36,7 +38,11 @@ export default function MainContent() {
       </section>
 
       <div className='hero-image__container'>
-        <img src={imgUrl} alt={member} className='hero-image' />
+        <img
+          src={imgUrl}
+          alt={member}
+          className={`hero-image hero-image--${firstName}`}
+        />
       </div>
     </div>
   );

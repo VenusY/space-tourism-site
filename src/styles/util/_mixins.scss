@@ -16,19 +16,6 @@
   border-radius: 100px;
 }
 
-@mixin body-text-defaults {
-  font-family: var(--ff-body);
-  font-size: f.rem(15);
-  letter-spacing: 0;
-  line-height: f.rem(25);
-  color: var(--light-blue);
-}
-
-@mixin body-text-defaults-medium {
-  font-size: f.rem(16);
-  line-height: f.rem(28);
-}
-
 @mixin focus-styles {
   outline: 2px solid var(--white);
   outline-offset: 4px;

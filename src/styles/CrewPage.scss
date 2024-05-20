@@ -31,7 +31,10 @@
   }
 
   &__bio {
-    @include m.body-text-defaults;
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--light-blue);
   }
 }
 
@@ -50,6 +53,8 @@
 }
 
 .crew__pagination-dots {
+  display: flex;
+  align-items: center;
   order: -1;
   margin-bottom: f.rem(18);
 
@@ -90,6 +95,11 @@
 
 @media screen and (min-width: 650px) {
   .crew {
+    &__text-section {
+      width: 600px;
+      margin-bottom: 40px;
+    }
+
     &__member-role {
       font-size: f.rem(24);
     }
@@ -100,9 +110,7 @@
     }
 
     &__bio {
-      @include m.body-text-defaults-medium;
-      width: 600px;
-      margin-bottom: 35px;
+      margin-bottom: 40px;
     }
   }
 
@@ -117,6 +125,91 @@
 
   .crew__pagination-dots {
     order: 0;
-    margin-bottom: 30px;
+    margin-bottom: 0;
+  }
+
+  @media (max-height: 1024px) {
+    .hero-image {
+      &__container {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .crew {
+    &__main-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 1108px;
+      margin-top: f.rem(90);
+    }
+
+    &__text-section {
+      justify-content: normal;
+      align-items: normal;
+      flex-shrink: 0;
+      width: 650px;
+      min-height: 409px;
+      margin-bottom: 50px;
+      margin-bottom: 0;
+      text-align: start;
+    }
+
+    &__member-role {
+      font-size: f.rem(32);
+    }
+
+    &__member-name {
+      margin-bottom: f.rem(14);
+      font-size: f.rem(56);
+    }
+
+    &__bio {
+      width: 440px;
+      margin-bottom: auto;
+    }
+  }
+
+  .hero-image {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+
+    &--douglas {
+      left: -40px;
+    }
+
+    &--mark {
+      left: -10px;
+    }
+
+    &--victor {
+      left: -75px;
+    }
+
+    &--anousheh {
+      left: -75px;
+    }
+
+    &__container {
+      display: flex;
+      width: 450px;
+      height: 504px;
+      position: relative;
+      border: none;
+    }
+  }
+
+  .crew__pagination-dots {
+    margin-top: 50px;
+    margin-bottom: 0;
+
+    &__dot {
+      width: 15px;
+      height: 15px;
+    }
   }
 }

@@ -4,7 +4,6 @@
 :root {
   --ff-heading: 'Bellefair', serif;
   --ff-sub-heading: 'Barlow Condensed', sans-serif;
-  --ff-body: 'Barlow', sans-serif;
   --fw-regular: 400;
   --fw-thin: 200;
   --fw-bold: 700;
@@ -12,6 +11,10 @@
   --dark-blue: #0b0d17;
   --grey: #979797;
   --white: #fff;
+
+  --ff-body: 'Barlow', sans-serif;
+  --fs-body: 0.9375rem;
+  --lh-body: 1.5625rem;
 }
 
 body {
@@ -36,17 +39,6 @@ body {
   &:has(main.crew) {
     position: relative;
     background-image: url('../../public/assets/crew/background-crew-mobile.jpg');
-
-    &::before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100%;
-      backdrop-filter: brightness(0.9);
-    }
   }
 
   &:has(main.technology) {
@@ -92,6 +84,7 @@ body {
   border: none;
   border-radius: 2px;
   background: none;
+  overflow: hidden;
 
   &:focus-visible {
     @include m.focus-styles;
@@ -113,6 +106,11 @@ body {
         transform-origin: left;
       }
     }
+  }
+
+  &__accessibility-text {
+    position: absolute;
+    right: -100vw;
   }
 
   &__line {
@@ -192,6 +190,11 @@ body {
 }
 
 @media screen and (min-width: 650px) {
+  :root {
+    --fs-body: 1rem;
+    --lh-body: 1.75rem;
+  }
+
   body {
     position: relative;
     padding: 0 38px 24px 38px;
@@ -300,12 +303,26 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
+  :root {
+    --fs-body: 1.125rem;
+    --lh-body: 2rem;
+  }
+
   body {
     padding: 40px 55px;
 
     &:has(main.home) {
       padding-bottom: 130px;
       background-image: url('../../public/assets/home/background-home-desktop.jpg');
+    }
+
+    &:has(main.destination) {
+      padding-bottom: 110px;
+      background-image: url('../../public/assets/destination/background-destination-desktop.jpg');
+    }
+
+    &:has(main.crew) {
+      background-image: url('../../public/assets/crew/background-crew-desktop.jpg');
     }
   }
 

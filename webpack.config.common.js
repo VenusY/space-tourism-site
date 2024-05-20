@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist'),
   },
   target: 'web',
   resolve: {
@@ -33,9 +33,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!assets', '!assets/**'],
-    }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',

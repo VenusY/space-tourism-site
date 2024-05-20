@@ -39,8 +39,11 @@
   }
 
   &__introduction {
-    @include m.body-text-defaults;
     max-width: 350px;
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--light-blue);
   }
 }
 
@@ -109,7 +112,6 @@
     }
 
     &__introduction {
-      @include m.body-text-defaults-medium;
       max-width: 435px;
     }
   }
@@ -163,11 +165,6 @@
         margin-bottom: f.rem(34);
         font-size: f.rem(150);
       }
-    }
-
-    &__introduction {
-      font-size: f.rem(18);
-      line-height: f.rem(32);
     }
   }
 

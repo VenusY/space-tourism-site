@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: f.rem(22);
+  margin-top: 22px;
 
   &__page-heading {
     margin-bottom: f.rem(30);
@@ -37,13 +37,37 @@
 
 @media screen and (min-width: 650px) {
   .main {
-    margin-top: f.rem(35);
+    margin-top: 35px;
 
     &__page-heading {
       width: 100%;
       margin-bottom: f.rem(55);
       text-align: start;
       font-size: f.rem(20);
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .main {
+    margin-top: 75px;
+
+    &__page-heading {
+      width: 1108px;
+      font-size: f.rem(28);
+      letter-spacing: f.rem(4.72);
+
+      &--destination {
+        margin-bottom: f.rem(50);
+      }
+
+      &--crew {
+        margin-bottom: f.rem(54);
+      }
+
+      &--technology {
+        margin-bottom: f.rem(22);
+      }
     }
   }
 }
