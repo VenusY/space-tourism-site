@@ -15,5 +15,3 @@ module.exports = merge(commonConfig, {
     liveReload: true,
   },
 });
-
-console.log(__dirname);
