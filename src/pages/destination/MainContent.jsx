@@ -14,7 +14,6 @@ export default function MainContent() {
   let description;
   let avgDistance;
   let estTravelTime;
-  let imgUrl;
 
   for (let moon of destinations) {
     if (moon.name !== destination) {
@@ -24,14 +23,13 @@ export default function MainContent() {
     description = moon.description;
     avgDistance = moon.distance;
     estTravelTime = moon.travel;
-    imgUrl = moon.images.png;
     break;
   }
 
   return (
     <div className='destination__main-content'>
       <img
-        src={imgUrl}
+        src={require(`../../../public/assets/destination/image-${destination.toLowerCase()}.png`)}
         alt={`Image of ${
           destination === 'Moon' ? `the ${destination}` : destination
         }`}

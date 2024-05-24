@@ -12,7 +12,6 @@ export default function MainContent() {
   const members = data.crew;
   let role;
   let bio;
-  let imgUrl;
 
   for (let person of members) {
     if (person.name !== member) {
@@ -21,11 +20,12 @@ export default function MainContent() {
 
     role = person.role;
     bio = person.bio;
-    imgUrl = person.images.png;
     break;
   }
 
-  let firstName = member.split(' ')[0].toLowerCase();
+  const nameSpaceDelimited = member.split(' ');
+  let firstName = nameSpaceDelimited[0].toLowerCase();
+  let lastName = nameSpaceDelimited[1].toLowerCase();
 
   return (
     <div className='crew__main-content'>
@@ -39,7 +39,7 @@ export default function MainContent() {
 
       <div className='hero-image__container'>
         <img
-          src={imgUrl}
+          src={require(`../../../public/assets/crew/image-${firstName}-${lastName}.png`)}
           alt={member}
           className={`hero-image hero-image--${firstName}`}
         />

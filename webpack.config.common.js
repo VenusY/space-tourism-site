@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { type } = require('os');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -17,18 +18,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx)$/i,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
       {
-        test: /\.s?css$/,
+        test: /\.s?css$/i,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.(png|jpe?g|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: '[hash][ext]',
+        },
       },
     ],
   },
